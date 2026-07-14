@@ -1,0 +1,8 @@
+# Python Virtual Environment
+venv/
+#Airflow logs
+infrastructure/logs/
+logs/
+.env 
+__pycache__/
+*.pyc 
