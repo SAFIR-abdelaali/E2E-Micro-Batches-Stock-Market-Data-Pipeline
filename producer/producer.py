@@ -1,10 +1,13 @@
 import time
 import json
 import requests
+import os
+from dotenv import load_dotenv
 from kafka import KafkaProducer
 import concurrent.futures
 
-API_KEY="d9b81g1r01qmk4gkl1dgd9b81g1r01qmk4gkl1e0"
+load_dotenv()
+API_KEY=os.getenv("FinnHub_API_KEY")
 BASE_URL="https://finnhub.io/api/v1/quote"
 SYMBOLS=["AAPL", "MSFT", "TSLA", "GOOGL", "AMZN", "BLK", "IBIT", "BINANCE:BTCUSDT", "BINANCE:ETHUSDT" ,"ORCL", "GLD"]
 producer = KafkaProducer(
@@ -32,4 +35,4 @@ while True:
                 print(f"Producing quote: {i}")
                 producer.send("stock-quotes",value=i)
     producer.flush() #ensuring all messages are sent to kafka
-    time.sleep(6)
+    time.sleep(10)
