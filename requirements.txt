@@ -1,5 +1,5 @@
 apache-airflow
-apache-airflow-providers-snowflake  # If you need Snowflake provider
+apache-airflow-providers-snowflake 
 kafka-python
 boto3
 snowflake-connector-python
